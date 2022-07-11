@@ -18,11 +18,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Current Rappers</h1>
-    <ul class="rappers">
+    <h1>Watch List</h1>
+    <ul class="items">
     <% for(let i=0; i < info.length; i++) {%>
-        <li class="rapper">
-            <span><%= info[i].stageName %></span>
+        <li class="items">
+            <span><%= info[i].title %></span>
             <span><%= info[i].birthName %></span>
             <span><%= info[i].likes %></span>
             <span class='fa fa-thumbs-up'></span>
@@ -31,10 +31,10 @@
     <% } %>
     </ul>
 
-    <h2>Add A Rapper:</h2>
+    <h2>Add Some Shit:</h2>
 
-    <form action="/addRapper" method="POST">
-        <input type="text" placeholder="Stage Name" name="stageName">
+    <form action="/addItem" method="POST">
+        <input type="text" placeholder="Title" name="title">
         <input type="text" placeholder="Birth Name" name="birthName">
         <input type="submit">
     </form>

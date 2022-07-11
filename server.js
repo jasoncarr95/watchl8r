@@ -31,18 +31,18 @@ app.get('/',(request, response)=>{
     .catch(error => console.error(error))
 })
 
-app.post('/addRapper', (request, response) => {
-    db.collection('movies').insertOne({stageName: request.body.stageName,
+app.post('/addItem', (request, response) => {
+    db.collection('movies').insertOne({title: request.body.title,
     birthName: request.body.birthName, likes: 0})
     .then(result => {
-        console.log('Rapper Added')
+        console.log('Added To Watch List!')
         response.redirect('/')
     })
     .catch(error => console.error(error))
 })
 
 app.put('/addOneLike', (request, response) => {
-    db.collection('movies').updateOne({stageName: request.body.stageNameS, birthName: request.body.birthNameS,likes: request.body.likesS},{
+    db.collection('movies').updateOne({title: request.body.titleS, birthName: request.body.birthNameS,likes: request.body.likesS},{
         $set: {
             likes:request.body.likesS + 1
           }
@@ -58,11 +58,11 @@ app.put('/addOneLike', (request, response) => {
 
 })
 
-app.delete('/deleteRapper', (request, response) => {
-    db.collection('movies').deleteOne({stageName: request.body.stageNameS})
+app.delete('/deleteItem', (request, response) => {
+    db.collection('movies').deleteOne({title: request.body.titleS})
     .then(result => {
-        console.log('Rapper Deleted')
-        response.json('Rapper Deleted')
+        console.log('Item Deleted')
+        response.json('Item Deleted')
     })
     .catch(error => console.error(error))
 
