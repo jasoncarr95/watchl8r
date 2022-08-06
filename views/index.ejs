@@ -1,45 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Watch List</h1>
-    <ul class="items">
-    <% for(let i=0; i < info.length; i++) {%>
-        <li class="items">
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      </head>
+      <body>
+        <h1>Watch List</h1>
+
+        <!-- RENDERING ITEMS FROM THE DATABASE -->
+        <ul class="items">
+          <% for(let i=0; i < info.length; i++) {%>
+          <!-- INFO is from the database -->
+          <li class="items">
             <span><%= info[i].title %></span>
             <span><%= info[i].birthName %></span>
             <span><%= info[i].likes %></span>
             <!-- <span class='fa fa-thumbs-up'></span> -->
-            <span class='far fa-check-square'></span>
-        </li>
-    <% } %>
-    </ul>
+            <span class="far fa-check-square"></span>
+          </li>
+          <% } %>
+        </ul>
 
-    <h2>Add Some Shit:</h2>
+        <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
+        <h2>Add Some Shit:</h2>
+        <form action="/addItem" method="POST">
+          <input type="text" placeholder="Title" name="title" />
+          <select name="type" id="typeOfItem">
+            <!-- <option value="">--Please choose a type</option> -->
+            <option selected value="movie">Movie</option>
+            <option value="show">Show</option>
+          </select>
+          <select name="platform" id="platform">
+            <option selected value="netflix">Netflix</option>
+            <option value="hulu">Hulu</option>
+            <option value="hboMax">HBO Max</option>
+            <option value="prime">Amazon Prime</option>
+            <option value="unknownOrOther">Unknown/Other (Specify)</option>
+          </select>
+          <input type="submit" />
+          <input type="button" value="button" />
+        </form>
 
-    <form action="/addItem" method="POST">
-        <input type="text" placeholder="Title" name="title">
-        <input type="text" placeholder="Birth Name" name="birthName">
-        <input type="submit">
-    </form>
-    
-
-    <script src='js/main.js'></script>
-</body>
+        <script src="js/main.js"></script>
+      </body>
+    </html>
+  </body>
 </html>
