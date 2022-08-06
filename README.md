@@ -24,7 +24,12 @@ User should be able to:
 
 ## Refactor/Add - Next
 
-Make it look better.. like less of a hot pile of garbage
+- Make it look better.. like less of a hot pile of garbage
+  - bootstrap?
+- react?
+- able to view/group/sort items
+  - by type (movies vs shows)
+  - by platform (netflix, hulu, etc)
 
 ***
 
