@@ -3,3 +3,4 @@ node_modules
 dataExample.json
 views/bootstrapTemplate.ejs
 notes
+.markdownlint.json

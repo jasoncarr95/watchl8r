@@ -26,7 +26,7 @@ app.get("/", (request, response) => {
     .find()
     .toArray()
     .then((data) => {
-      console.log(`Get request made on main page "/"`);
+      
 
       response.render("index.ejs", { info: data });
     })
@@ -42,7 +42,7 @@ app.post("/addItem", (request, response) => {
       platform: request.body.platform,
     })
     .then((result) => {
-        console.log(request)
+        console.log(`POST request made! Added ${request.body.title}`)
     //   console.log("Added To Watch List!");
       response.redirect("/");
     })

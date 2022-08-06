@@ -4,3 +4,9 @@ body {
     border-color: #c59d00;
     color: grey;
 }
+
+.container {
+    display:flex;
+    
+}
+
