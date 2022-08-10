@@ -10,6 +10,8 @@ Motivation: Built to use for a friend and myself. The hope was to save time when
 - "Sumn2Watch"
 - etc
 
+added dev branch
+
 ***
 
 ## MVP (Minimum Viable Project)
