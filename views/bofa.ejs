@@ -23,94 +23,87 @@
       </head>
       <body>
 
-      <section id="shows">
-        <h2>Shows</h2>
+    <section id="movies">
+      <h2>Movies</h2>
         <ul class="items">
-          <% for(let i=0; i < showItem.length; i++) {%>
+          <% for(let i=0; i < movieItem.length; i++) {%>
           <li class="item">
-            <% if(showItem[i].platform === "prime") {%>
-            <span class="completed"><%= showItem[i].title%></span>
+            <% if(movieItem[i].platform === "prime") {%>
+            <span class="completed"><%= movieItem[i].title%></span>
             <img
               height="32"
               width="32"
               src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
             />
-            <% }else if(showItem[i].platform=== "hulu"){ %>
-              <span><%= showItem[i].title%></span>
+            <% }else if(movieItem[i].platform=== "hulu"){ %>
+              <span><%= movieItem[i].title%></span>
               <img
               height="32"
               width="32"
               src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
             />
-            <% }else if(showItem[i].platform=== "hboMax"){ %>
-              <span><%= showItem[i].title%></span>
+            <% }else if(movieItem[i].platform=== "hboMax"){ %>
+              <span><%= movieItem[i].title%></span>
               <img
               height="32"
               width="32"
               src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
             />
-            <% }else if(showItem[i].platform=== "netflix"){ %>
-            <span><%= showItem[i].title%></span>
+            <% }else if(movieItem[i].platform=== "netflix"){ %>
+            <span><%= movieItem[i].title%></span>
             <img
               height="32"
               width="32"
               src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
             />
             <% }else { %>
-              <span><%= showItem[i].title%></span>
+              <span><%= movieItem[i].title%></span>
             <% } %>
           </li>
           <% } %>
         </ul>
-      </section>
+    </section>
 
-        <section id="moviesList">
-          <table>
-            <thead>
-              <tr>
-                <th>test header</th>
-                <td>primevideo</td>
-                <td>netflix</td>
-                <td>hulu</td>
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://unpkg.com/simple-icons@v7/icons/[ICON SLUG].svg"
-                  />
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>test cell</td>
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-                  />
-                </td>
-
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
-                  />
-                </td>
-
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
+    <section id="shows">
+      <h2>Shows</h2>
+      <ul class="items">
+        <% for(let i=0; i < showItem.length; i++) {%>
+        <li class="item">
+          <% if(showItem[i].platform === "prime") {%>
+          <span class="completed"><%= showItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
+          />
+          <% }else if(showItem[i].platform=== "hulu"){ %>
+            <span><%= showItem[i].title%></span>
+            <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
+          />
+          <% }else if(showItem[i].platform=== "hboMax"){ %>
+            <span><%= showItem[i].title%></span>
+            <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
+          />
+          <% }else if(showItem[i].platform=== "netflix"){ %>
+          <span><%= showItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+          />
+          <% }else { %>
+            <span><%= showItem[i].title%></span>
+          <% } %>
+        </li>
+        <% } %>
+      </ul>
+    </section>
 
         <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
         <h2>Add Some Shit:</h2>
@@ -122,7 +115,7 @@
             name="title"
           />
 
-          <select class="flexItem" name="type" id="showItem">
+          <select class="flexItem" name="type" id="movieItem">
             <!-- <option value="">--Please choose a type</option> -->
             <option selected value="movie">Movie</option>
             <option value="show">Show</option>

@@ -104,3 +104,11 @@ app.get("/shows", async (request, response) => {
   response.render("shows.ejs", {movieItem: movies, showItem: shows})
 
 });
+
+app.get("/bofa", async (request, response) => {
+  const movies = await db.collection("movies").find({type: "movie"}).toArray()
+  const shows = await db.collection("movies").find({type: "show"}).toArray()
+
+  response.render("bofa.ejs", {movieItem: movies, showItem: shows})
+
+});
