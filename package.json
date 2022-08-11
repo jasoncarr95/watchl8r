@@ -18,6 +18,7 @@
     "simple-icons": "^7.6.0"
   },
   "devDependencies": {
+    "ejs-lint": "^1.2.2",
     "nodemon": "^2.0.19"
   }
 }
