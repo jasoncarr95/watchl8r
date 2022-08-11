@@ -10,6 +10,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/table.css" />
   </head>
   <body>
     <!DOCTYPE html>
@@ -21,31 +22,100 @@
         <title>Document</title>
       </head>
       <body>
-        <h1>Watch List</h1>
 
-        <!-- RENDERING ITEMS FROM THE DATABASE -->
+    <section id="movies">
+      <h2>Movies</h2>
         <ul class="items">
-          <% for(let i=0; i < info.length; i++) {%>
-          <!-- INFO is from the database -->
-          <li>
-            <%= info[i].title %>
-            <span class="far fa-check-square"></span>
+          <% for(let i=0; i < movieItem.length; i++) {%>
+          <li class="item">
+            <% if(movieItem[i].platform === "prime") {%>
+            <span class="completed"><%= movieItem[i].title%></span>
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
+            />
+            <% }else if(movieItem[i].platform=== "hulu"){ %>
+              <span><%= movieItem[i].title%></span>
+              <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
+            />
+            <% }else if(movieItem[i].platform=== "hboMax"){ %>
+              <span><%= movieItem[i].title%></span>
+              <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
+            />
+            <% }else if(movieItem[i].platform=== "netflix"){ %>
+            <span><%= movieItem[i].title%></span>
+            <img
+              height="32"
+              width="32"
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+            />
+            <% }else { %>
+              <span><%= movieItem[i].title%></span>
+            <% } %>
           </li>
-          <ul class="items">
-            <li><%= info[i].type %></li>
-            <li><%= info[i].platform %></li>
-            <!-- <span class='fa fa-thumbs-up'></span> -->
-          </ul>
           <% } %>
         </ul>
+    </section>
+
+    <section id="shows">
+      <h2>Shows</h2>
+      <ul class="items">
+        <% for(let i=0; i < showItem.length; i++) {%>
+        <li class="item">
+          <% if(showItem[i].platform === "prime") {%>
+          <span class="completed"><%= showItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
+          />
+          <% }else if(showItem[i].platform=== "hulu"){ %>
+            <span><%= showItem[i].title%></span>
+            <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
+          />
+          <% }else if(showItem[i].platform=== "hboMax"){ %>
+            <span><%= showItem[i].title%></span>
+            <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
+          />
+          <% }else if(showItem[i].platform=== "netflix"){ %>
+          <span><%= showItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+          />
+          <% }else { %>
+            <span><%= showItem[i].title%></span>
+          <% } %>
+        </li>
+        <% } %>
+      </ul>
+    </section>
 
         <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
         <h2>Add Some Shit:</h2>
         <form action="/addItem" method="POST" class="container">
+          <input
+            type="text"
+            class="flexItem"
+            placeholder="Title"
+            name="title"
+          />
 
-          <input type="text" class="flexItem" placeholder="Title" name="title" />
-
-          <select class="flexItem" name="type" id="items">
+          <select class="flexItem" name="type" id="movieItem">
             <!-- <option value="">--Please choose a type</option> -->
             <option selected value="movie">Movie</option>
             <option value="show">Show</option>

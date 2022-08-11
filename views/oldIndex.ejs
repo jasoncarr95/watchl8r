@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watch List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+      </head>
+      <body>
+        <h1>Watch List</h1>
+
+        <!-- RENDERING ITEMS FROM THE DATABASE -->
+        <ul class="items">
+          <% for(let i=0; i < info.length; i++) {%>
+          <!-- INFO is from the database -->
+          <li>
+            <%= info[i].title %>
+            <span class="far fa-check-square"></span>
+          </li>
+          <ul class="items">
+            <li><%= info[i].type %></li>
+            <li><%= info[i].platform %></li>
+            <!-- <span class='fa fa-thumbs-up'></span> -->
+          </ul>
+          <% } %>
+        </ul>
+
+        <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
+        <h2>Add Some Shit:</h2>
+        <form action="/addItem" method="POST" class="container">
+
+          <input type="text" class="flexItem" placeholder="Title" name="title" />
+
+          <select class="flexItem" name="type" id="items">
+            <!-- <option value="">--Please choose a type</option> -->
+            <option selected value="movie">Movie</option>
+            <option value="show">Show</option>
+          </select>
+
+          <select class="flexItem" name="platform" id="platform">
+            <option selected value="netflix">Netflix</option>
+            <option value="hulu">Hulu</option>
+            <option value="hboMax">HBO Max</option>
+            <option value="prime">Prime</option>
+            <option value="other">Other</option>
+          </select>
+
+          <button class="flexItem" type="submit">Submit</button>
+        </form>
+
+        <script src="js/main.js"></script>
+      </body>
+    </html>
+  </body>
+</html>
