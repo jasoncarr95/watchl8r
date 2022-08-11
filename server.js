@@ -87,3 +87,28 @@ app.delete("/deleteItem", (request, response) => {
 app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
+
+app.get("/movies", async (request, response) => {
+  const movies = await db.collection("movies").find({type: "movie"}).toArray()
+  const shows = await db.collection("movies").find({type: "show"}).toArray()
+
+  response.render("movies.ejs", {movieItem: movies, showItem: shows})
+
+});
+
+app.get("/shows", async (request, response) => {
+  const movies = await db.collection("movies").find({type: "movie"}).toArray()
+  const shows = await db.collection("movies").find({type: "show"}).toArray()
+
+  response.render("shows.ejs", {movieItem: movies, showItem: shows})
+
+});
+
+app.get("/bofa", async (request, response) => {
+  const movies = await db.collection("movies").find({type: "movie"}).toArray()
+  const shows = await db.collection("movies").find({type: "show"}).toArray()
+
+  response.render("bofa.ejs", {movieItem: movies, showItem: shows})
+
+});
