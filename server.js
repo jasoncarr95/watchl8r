@@ -21,17 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Server Responds on main page with rendered EJS... INFO
-// app.get("/", (request, response) => {
-//   db.collection("movies")
-//     .find()
-//     .toArray()
-//     .then((data) => {
-      
-
-//       response.render("index.ejs", { info: data });
-//     })
-//     .catch((error) => console.error(error));
-// });
 
 app.get("/", async (request, response) => {
   const movies = await db.collection("movies").find({type: "movie"}).toArray()
@@ -97,19 +86,19 @@ app.listen(process.env.PORT || PORT, () => {
 });
 
 
-// app.get("/movies", async (request, response) => {
-//   const movies = await db.collection("movies").find({type: "movie"}).toArray()
-//   const shows = await db.collection("movies").find({type: "show"}).toArray()
+app.get("/movies", async (request, response) => {
+  const movies = await db.collection("movies").find({type: "movie"}).toArray()
+  const shows = await db.collection("movies").find({type: "show"}).toArray()
 
-//   response.render("movies.ejs", {movieItem: movies, showItem: shows})
+  response.render("movies.ejs", {movieItem: movies, showItem: shows})
 
-// });
+});
 
-// app.get("/shows", async (request, response) => {
-//   const movies = await db.collection("movies").find({type: "movie"}).toArray()
-//   const shows = await db.collection("movies").find({type: "show"}).toArray()
+app.get("/shows", async (request, response) => {
+  const movies = await db.collection("movies").find({type: "movie"}).toArray()
+  const shows = await db.collection("movies").find({type: "show"}).toArray()
 
-//   response.render("shows.ejs", {movieItem: movies, showItem: shows})
+  response.render("shows.ejs", {movieItem: movies, showItem: shows})
 
-// });
+});
 
