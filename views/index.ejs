@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Watch List</title>
+    <title>watchl8r</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -12,56 +12,56 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/table.css" />
   </head>
+  
   <body>
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-      </head>
-      <body>
-
     <section id="movies">
       <h2>Movies</h2>
-        <ul class="items">
-          <% for(let i=0; i < movieItem.length; i++) {%>
-          <li class="item">
-            <% if(movieItem[i].platform === "prime") {%>
-            <span class="completed"><%= movieItem[i].title%></span>
-            <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-            />
-            <% }else if(movieItem[i].platform=== "hulu"){ %>
-              <span><%= movieItem[i].title%></span>
-              <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-            />
-            <% }else if(movieItem[i].platform=== "hboMax"){ %>
-              <span><%= movieItem[i].title%></span>
-              <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
-            />
-            <% }else if(movieItem[i].platform=== "netflix"){ %>
+
+      <ul class="items">
+        <% for(let i=0; i < movieItem.length; i++) {%>
+        <li class="item">
+          <% if(movieItem[i].platform === "prime") {%>
+          <span class="completed"><%= movieItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
+          />
+          <% }else if(movieItem[i].platform=== "hulu"){ %>
+          <span><%= movieItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
+          />
+          <% }else if(movieItem[i].platform=== "hboMax"){ %>
+          <span><%= movieItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
+          />
+          <% }else if(movieItem[i].platform=== "appleTV"){ %>
             <span><%= movieItem[i].title%></span>
             <img
               height="32"
               width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appletv.svg"
             />
-            <% }else { %>
-              <span><%= movieItem[i].title%></span>
-            <% } %>
-          </li>
+          <% }else if(movieItem[i].platform=== "netflix"){ %>
+          <span><%= movieItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+          />
+          <% }else { %>
+          <span><%= movieItem[i].title%></span>
           <% } %>
-        </ul>
+        </li>
+        <% } %>
+      </ul>
+
     </section>
 
     <section id="shows">

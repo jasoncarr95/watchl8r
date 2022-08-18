@@ -1,6 +1,5 @@
+config/.env
 node_modules
-.env
-dataExample.json
-views/bootstrapTemplate.ejs
 notes
-.markdownlint.json
+vscode
+.prettierrc

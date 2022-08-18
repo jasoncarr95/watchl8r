@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Watch List</title>
+    <title>Movies</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -12,147 +12,133 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/table.css" />
   </head>
-  <body>
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-      </head>
-      <body>
 
-        <h2>Movies</h2>
-        <!-- RENDERING movieItem FROM THE DATABASE -->
-        <!-- <ul class="movies">
-          <% for(let i=0; i < movieItem.length; i++) {%>
-          <li>
-            <%= movieItem[i].title %>
-            <span class="far fa-check-square"></span>
-          </li>
-          <ul class="movieItem">
-            <li><%= movieItem[i].type %></li>
-            <li><%= movieItem[i].platform %></li>
-          </ul>
-          <% } %>
-        </ul> -->
-
-        <ul class="items">
-          <% for(let i=0; i < movieItem.length; i++) {%>
-          <li class="item">
-            <% if(movieItem[i].platform === "prime") {%>
-            <span class="completed"><%= movieItem[i].title%></span>
-            <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-            />
-            <% }else if(movieItem[i].platform=== "hulu"){ %>
-              <span><%= movieItem[i].title%></span>
-              <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-            />
-            <% }else if(movieItem[i].platform=== "hboMax"){ %>
-              <span><%= movieItem[i].title%></span>
-              <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
-            />
-            <% }else if(movieItem[i].platform=== "netflix"){ %>
-            <span><%= movieItem[i].title%></span>
-            <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
-            />
-            <% }else { %>
-              <span><%= movieItem[i].title%></span>
-            <% } %>
-          </li>
-          <% } %>
-        </ul>
-
-        <section id="moviesList">
-          <table>
-            <thead>
-              <tr>
-                <th>test header</th>
-                <td>primevideo</td>
-                <td>netflix</td>
-                <td>hulu</td>
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://unpkg.com/simple-icons@v7/icons/[ICON SLUG].svg"
-                  />
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>test cell</td>
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-                  />
-                </td>
-
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
-                  />
-                </td>
-
-                <td>
-                  <img
-                    height="32"
-                    width="32"
-                    src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-                  />
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-
-        <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
-        <h2>Add Some Shit:</h2>
-        <form action="/addItem" method="POST" class="container">
-          <input
-            type="text"
-            class="flexItem"
-            placeholder="Title"
-            name="title"
+  <body>  
+    <h2>Movies</h2>
+    
+    <ul class="items">
+      <% for(let i=0; i < movieItem.length; i++) {%>
+      <li class="item">
+        <% if(movieItem[i].platform === "prime") {%>
+        <span class="completed"><%= movieItem[i].title%></span>
+        <img
+          height="32"
+          width="32"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
+        />
+        <% }else if(movieItem[i].platform=== "hulu"){ %>
+        <span><%= movieItem[i].title%></span>
+        <img
+          height="32"
+          width="32"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
+        />
+        <% }else if(movieItem[i].platform=== "hboMax"){ %>
+        <span><%= movieItem[i].title%></span>
+        <img
+          height="32"
+          width="32"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
+        />
+        <% }else if(movieItem[i].platform=== "appleTV"){ %>
+          <span><%= movieItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appletv.svg"
           />
+        <% }else if(movieItem[i].platform=== "netflix"){ %>
+        <span><%= movieItem[i].title%></span>
+        <img
+          height="32"
+          width="32"
+          src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+        />
+        <% }else { %>
+        <span><%= movieItem[i].title%></span>
+        <% } %>
+      </li>
+      <% } %>
+    </ul>
 
-          <select class="flexItem" name="type" id="movieItem">
-            <!-- <option value="">--Please choose a type</option> -->
-            <option selected value="movie">Movie</option>
-            <option value="show">Show</option>
-          </select>
+    <section id="moviesList">
+      <table>
+        <thead>
+          <tr>
+            <th>test header</th>
+            <td>Prime Video</td>
+            <td>Netflix</td>
+            <td>Hulu</td>
+            <td>Apple TV</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>test cell</td>
+            <td>
+              <img
+                height="32"
+                width="32"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
+              />
+            </td>
 
-          <select class="flexItem" name="platform" id="platform">
-            <option selected value="netflix">Netflix</option>
-            <option value="hulu">Hulu</option>
-            <option value="hboMax">HBO Max</option>
-            <option value="prime">Prime</option>
-            <option value="other">Other</option>
-          </select>
+            <td>
+              <img
+                height="32"
+                width="32"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
+              />
+            </td>
 
-          <button class="flexItem" type="submit">Submit</button>
-        </form>
+            <td>
+              <img
+                height="32"
+                width="32"
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
+              />
+            </td>
+            <td>
+              <img
+                height="32"
+                width="32"
+                src="https://unpkg.com/simple-icons@v7/icons/appletv.svg"
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
+    <h2>Add Some Shit:</h2>
+    <form action="/addItem" method="POST" class="container">
+      <input
+        type="text"
+        class="flexItem"
+        placeholder="Title"
+        name="title"
+      />
 
-        <script src="js/main.js"></script>
-      </body>
-    </html>
+      <select class="flexItem" name="type" id="movieItem">
+        <!-- <option value="">--Please choose a type</option> -->
+        <option selected value="movie">Movie</option>
+        <option value="show">Show</option>
+      </select>
+
+      <select class="flexItem" name="platform" id="platform">
+        <option selected value="netflix">Netflix</option>
+        <option value="hulu">Hulu</option>
+        <option value="hboMax">HBO Max</option>
+        <option value="prime">Prime</option>
+        <option value="appleTV">Apple TV</option>
+        <option value="other">Other</option>
+      </select>
+
+      <button class="flexItem" type="submit">Submit</button>
+    </form>
+
+    <script src="js/main.js"></script>
   </body>
+</html>
+</body>
 </html>

@@ -1,8 +1,12 @@
+// Basic Express app set up
 const express = require("express");
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
 const PORT = 2121;
-require("dotenv").config();
+
+// Loads .env file contents into | `process.env`. Example: 'KEY=value'
+require("dotenv").config({ path: "./config/.env" });
+
 
 let db,
   dbConnectionStr = process.env.DB_STRING,
@@ -15,6 +19,7 @@ MongoClient.connect(dbConnectionStr, { useUnifiedTopology: true }).then(
   }
 );
 
+// EJS
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
@@ -23,11 +28,14 @@ app.use(express.json());
 // Server Responds on main page with rendered EJS... INFO
 
 app.get("/", async (request, response) => {
-  const movies = await db.collection("movies").find({type: "movie"}).toArray()
-  const shows = await db.collection("movies").find({type: "show"}).toArray()
+  const movies = await db
+    .collection("movies")
+    .find({ type: "movie" })
+    .toArray();
+  const shows = await db.collection("movies").find({ type: "show" }).toArray();
 
-  response.render("index.ejs", {movieItem: movies, showItem: shows})
-
+  console.log(`Received a GET a request on '/'`);
+  response.render("index.ejs", { movieItem: movies, showItem: shows });
 });
 
 //  Adding to the database.. DB is named "movies"
@@ -39,8 +47,8 @@ app.post("/addItem", (request, response) => {
       platform: request.body.platform,
     })
     .then((result) => {
-        console.log(`POST request made! Added ${request.body.title}`)
-    //   console.log("Added To Watch List!");
+      console.log(`POST request made! Added ${request.body.title}`);
+      //   console.log("Added To Watch List!");
       response.redirect("/");
     })
     .catch((error) => console.error(error));
@@ -85,20 +93,24 @@ app.listen(process.env.PORT || PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 
-
 app.get("/movies", async (request, response) => {
-  const movies = await db.collection("movies").find({type: "movie"}).toArray()
-  const shows = await db.collection("movies").find({type: "show"}).toArray()
+  const movies = await db
+    .collection("movies")
+    .find({ type: "movie" })
+    .toArray();
+  const shows = await db.collection("movies").find({ type: "show" }).toArray();
 
-  response.render("movies.ejs", {movieItem: movies, showItem: shows})
-
+  console.log(`Received a GET a request on '/movies'`);
+  response.render("movies.ejs", { movieItem: movies, showItem: shows });
 });
 
 app.get("/shows", async (request, response) => {
-  const movies = await db.collection("movies").find({type: "movie"}).toArray()
-  const shows = await db.collection("movies").find({type: "show"}).toArray()
+  const movies = await db
+    .collection("movies")
+    .find({ type: "movie" })
+    .toArray();
+  const shows = await db.collection("movies").find({ type: "show" }).toArray();
 
-  response.render("shows.ejs", {movieItem: movies, showItem: shows})
-
+  console.log(`Received a GET a request on '/shows'`);
+  response.render("shows.ejs", { movieItem: movies, showItem: shows });
 });
-
