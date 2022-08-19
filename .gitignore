@@ -3,3 +3,4 @@ node_modules
 notes
 .vscode
 .prettierrc
+public/js/add-field-every-document.mongodb
