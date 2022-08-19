@@ -18,9 +18,9 @@ added dev branch
 
 User should be able to:
 
-- Add item to watch later list
-- view watch later list
-- "check off" item from list
+- [x] Add item to watch later list
+- [x] view watch later list
+- [ ] "check off" item from list
 
 ***
 
@@ -29,9 +29,9 @@ User should be able to:
 - Make it look better.. like less of a hot pile of garbage
   - bootstrap?
 - react?
-- able to view/group/sort items
-  - by type (movies vs shows)
-  - by platform (netflix, hulu, etc)
+- [ ] able to view/group/sort items
+  - [x]  by type (movies vs shows)
+  - [x]  ~~by platform (netflix, hulu, etc)~~
 
 ***
 
@@ -39,4 +39,4 @@ User should be able to:
 
 - Use an API to be able to look up/search (movieDB api/imbd?)
   - option of "search for show" OR add manually
-- User Login options/authentification
+- User Login options/authentication
