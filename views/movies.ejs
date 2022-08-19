@@ -33,6 +33,13 @@
           width="32"
           src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
         />
+        <% }else if(movieItem[i].platform=== "peacock"){ %>
+          <span><%= movieItem[i].title%></span>
+          <img
+            height="32"
+            width="32"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NBCUniversal_Peacock_Logo.svg"
+          />
         <% }else if(movieItem[i].platform=== "hboMax"){ %>
         <span><%= movieItem[i].title%></span>
         <img
@@ -130,7 +137,7 @@
         <option value="hulu">Hulu</option>
         <option value="hboMax">HBO Max</option>
         <option value="prime">Prime</option>
-        <option value="appleTV">Apple TV</option>
+        <option value="peacock">Peacock</option>
         <option value="other">Other</option>
       </select>
 
