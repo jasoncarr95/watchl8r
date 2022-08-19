@@ -14,118 +14,14 @@
   </head>
   
   <body>
-    <section id="movies">
-      <h2>Movies</h2>
 
-      <ul class="items">
-        <% for(let i=0; i < movieItem.length; i++) {%>
-        <li class="item">
-          <% if(movieItem[i].platform === "prime") {%>
-          <span class="completed"><%= movieItem[i].title%></span>
-          <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-          />
-          <% }else if(movieItem[i].platform=== "hulu"){ %>
-          <span><%= movieItem[i].title%></span>
-          <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-          />
-          <% }else if(movieItem[i].platform=== "hboMax"){ %>
-          <span><%= movieItem[i].title%></span>
-          <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
-          />
-          <% }else if(movieItem[i].platform=== "paramountPlus"){ %>
-            <span><%= movieItem[i].title%></span>
-            <img
-              height="32"
-              width="32"
-              src="../icons/paramount-seeklogo.com.svg"
-            />
-          <% }else if(movieItem[i].platform=== "appleTV"){ %>
-            <span><%= movieItem[i].title%></span>
-            <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appletv.svg"
-            />
-          <% }else if(movieItem[i].platform=== "netflix"){ %>
-          <span><%= movieItem[i].title%></span>
-          <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
-          />
-          <% }else { %>
-          <span><%= movieItem[i].title%></span>
-          <% } %>
-        </li>
-        <% } %>
-      </ul>
+    <!-- MOVIES SECTION -->
+    <%- include('./partials/movies-section'); %>
 
-    </section>
+    <!-- MOVIES SECTION -->
+    <%- include('./partials/shows-section'); %>
 
-    <section id="shows">
-      <h2>Shows</h2>
-      <ul class="items">
-        <% for(let i=0; i < showItem.length; i++) {%>
-        <li class="item">
-          <% if(showItem[i].platform === "prime") {%>
-          <span class="completed"><%= showItem[i].title%></span>
-          <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-          />
-          <% }else if(showItem[i].platform=== "hulu"){ %>
-            <span><%= showItem[i].title%></span>
-            <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-          />
-          <% }else if(showItem[i].platform=== "hboMax"){ %>
-            <span><%= showItem[i].title%></span>
-            <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hbo.svg"
-          />
-          <% }else if(showItem[i].platform=== "appleTV"){ %>
-            <span><%= showItem[i].title%></span>
-            <img
-              height="32"
-              width="32"
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appletv.svg"
-            />
-            <% }else if(showItem[i].platform=== "peacock"){ %>
-              <span><%= showItem[i].title%></span>
-              <img
-                height="32"
-                width="32"
-                src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NBCUniversal_Peacock_Logo.svg"
-              />
-          <% }else if(showItem[i].platform=== "netflix"){ %>
-          <span><%= showItem[i].title%></span>
-          <img
-            height="32"
-            width="32"
-            src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
-          />
-          <% }else { %>
-            <span><%= showItem[i].title%></span>
-          <% } %>
-        </li>
-        <% } %>
-      </ul>
-    </section>
-
+    <!-- ADDING TO THE DATA BASE VIA POST REQUEST -->
     <%- include('./partials/formToAdd'); %>
 
 
