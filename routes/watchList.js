@@ -3,14 +3,14 @@ const router = express.Router()
 const watchListController = require('../controllers/watchList') 
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
-router.get('/', ensureAuth, watchListController.getTodos)
+router.get('/', ensureAuth, watchListController.getToWatchs)
 
-router.post('/createTodo', watchListController.createTodo)
+// router.post('/addItem', watchListController.addItem)
 
-router.put('/markComplete', watchListController.markComplete)
+// router.put('/markWatched', watchListController.markWatched)
 
-router.put('/markIncomplete', watchListController.markIncomplete)
+// router.put('/markIncomplete', watchListController.markIncomplete)
 
-router.delete('/deleteTodo', watchListController.deleteTodo)
+// router.delete('/deleteTodo', watchListController.deleteTodo)
 
 module.exports = router
