@@ -1,6 +1,11 @@
+// delete button is where every del span is (which is added to each item in ejs)
 const deleteBtn = document.querySelectorAll('.del')
+// todItem = all items with a class "not"...which are given to items from DB with property !completed
 const ToWatchItem = document.querySelectorAll('span.not')
+// opposite of above
 const todoComplete = document.querySelectorAll('span.completed')
+
+// add eventlistener to all the del spans that run the function when clicked
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)

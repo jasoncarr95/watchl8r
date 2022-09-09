@@ -1,3 +1,7 @@
+// THIS MODULE IS FOR CONNECTING TO THE DATABASE WITH MONGOOSE
+// IS ONLY REFERENCED IN SERVER.JS
+
+// adding the npm module 'mongoose' to this file
 const mongoose = require('mongoose')
 
 const connectDB = async () => {
@@ -6,7 +10,6 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useFindAndModify: false,
-      useCreateIndex: true
     })
 
     console.log(`MongoDB Connected: ${conn.connection.host}`)
