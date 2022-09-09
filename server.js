@@ -14,7 +14,7 @@ const watchListRoutes = require('./routes/watchList')
 
 
 // Loads .env file contents into | `process.env`. Example: 'KEY=value'
-require('dotenv').config({path: './config/.env'})
+require("dotenv").config({ path: "./config/.env" });
 
 // Passport config
 require('./config/passport')(passport)
@@ -85,20 +85,6 @@ app.post("/addItem", (request, response) => {
 });
 
 
-<<<<<<< HEAD
-=======
-app.delete("/deleteItem", (request, response) => {
-  db.collection("movies")
-    .deleteOne({ title: request.body.title })
-    .then((result) => {
-      console.log("Item Deleted");
-      response.json("Item Deleted");
-    })
-    .catch((error) => console.error(error));
-});
-
-// EXTRA SHIT *****
->>>>>>> d76f507 (Rename package)
 
 app.get("/movies", async (request, response) => {
   const movies = await db
@@ -120,8 +106,4 @@ app.get("/shows", async (request, response) => {
 
   console.log(`Received a GET a request on '/shows'`);
   response.render("shows.ejs", { movieItem: movies, showItem: shows });
-});
-
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on port ${PORT}`);
 });
