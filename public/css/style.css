@@ -11,3 +11,11 @@
     
 }
 
+/* input[type=checkbox]:checked + label.strikethrough{
+    text-decoration: line-through;
+  } */
+
+.watched{
+    text-decoration: line-through;
+    color: gray;
+}
