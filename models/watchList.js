@@ -14,7 +14,7 @@ const ToWatchSchema = new mongoose.Schema({
   },
   watched: {
     type: Boolean,
-    required: true,
+    // required: true,
     default: false
   },
   dateAdded: {
