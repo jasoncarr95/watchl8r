@@ -6,7 +6,7 @@ const { ensureAuth, ensureGuest } = require('../middleware/auth')
 // router.get('/', ensureAuth, watchListController.getToWatchs)
 router.get('/', watchListController.getToWatchs)
 
-// router.post('/addItem', watchListController.addItem)
+router.post('/addItem', watchListController.addItem)
 
 // router.put('/markWatched', watchListController.markWatched)
 

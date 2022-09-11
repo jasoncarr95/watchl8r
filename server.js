@@ -42,16 +42,16 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use(flash())
-
+  
 
 // ROUTES
 app.use('/', homeRoutes)
 app.use('/watchList', watchListRoutes)
-
+ 
 // Set up server to listen
 app.listen(process.env.PORT || PORT, () => {
   // console.log(`Server running on port ${PORT}`);
-  console.log('Server is running, you better catch it!')
+    console.log('Server is running, you better catch it!')
 });
 
 
@@ -68,21 +68,7 @@ app.get("/", async (request, response) => {
   response.render("index.ejs", { movieItem: movies, showItem: shows });
 });
 
-//  Adding to the database.. DB is named "movies"
-app.post("/addItem", (request, response) => {
-  db.collection("movies")
-    .insertOne({
-      title: request.body.title,
-      type: request.body.type,
-      platform: request.body.platform,
-    })
-    .then((result) => {
-      console.log(`POST request made! Added ${request.body.title}`);
-      //   console.log("Added To Watch List!");
-      response.redirect("/");
-    })
-    .catch((error) => console.error(error));
-});
+
 
 
 
