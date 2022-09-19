@@ -14,14 +14,17 @@ module.exports = {
         }
     },
     addItem: async (req, res) => {
-        console.log(req.user);
+        console.log(req.body);
         try {
-            // await watchList.create({
-            //     title: request.body.title,
-            //     type: request.body.type,
-            //     platform: request.body.platform,
-            // });
-            console.log(`${watchList.type} added to watchlist!`);
+            await watchList.create({
+                title: req.body.title,
+                type: req.body.type,
+                platform: req.body.platform,
+                watched: false,
+                user: req.user.id,
+
+            });
+            console.log("Item added to watchlist!")
             res.redirect("/watchList");
         } catch (err) {
             console.log(err);
