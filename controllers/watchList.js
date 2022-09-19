@@ -9,7 +9,6 @@ module.exports = {
             const shows = await watchList.find({ type: "show" });
             console.log(movies);
             res.render("watchList.ejs", { movieItem: movies, showItem: shows });
-            // res.render('partials/movies-section.ejs',{movieItem: movies})
         } catch (err) {
             console.log(err);
         }
