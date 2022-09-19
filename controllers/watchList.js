@@ -1,4 +1,6 @@
 const watchList = require("../models/watchList");
+const platformLogo = require("../middleware/platformLogo")
+
 
 module.exports = {
     // Basic Get request on home page
@@ -22,6 +24,7 @@ module.exports = {
                 platform: req.body.platform,
                 watched: false,
                 user: req.user.id,
+                logoURL: platformLogo[req.body.platform]
 
             });
             console.log("Item added to watchlist!")

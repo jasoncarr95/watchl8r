@@ -12,19 +12,22 @@ const ToWatchSchema = new mongoose.Schema({
   platform: {
     type: String
   },
+  logoURL:{
+    type: String
+  },
   watched: {
     type: Boolean,
     // required: true,
     default: false
   },
-  dateAdded: {
-    type: Date,
-    required: true,
-    default: Date.now
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
-  userId: {
-    type: String,
-  }
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 })
 
 module.exports = mongoose.model('ToWatch', ToWatchSchema)
