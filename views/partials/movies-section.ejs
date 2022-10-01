@@ -1,77 +1,23 @@
 <section id="movies">
-  <h2>Movies</h2>
+    <h2>Movies</h2>
 
-  <ul class="items">
-    <% for(let i=0; i < movieItem.length; i++) {%>
+    <ul class="items">
+        <% for(let i=0; i < movieItem.length; i++) {%>
 
-    <li class="item">
-      <!-- ALL ITEMS GET THIS -->
-      <input type="checkbox" name="checkbox" class="checkbox" />
+        <li class="item">
+            <!-- ALL ITEMS GET THIS -->
+            <input type="checkbox" name="checkbox" class="checkbox" />
+            <!-- If item has logoURL in DB -->
+            <% if(movieItem[i].logoURL) {%>
+            <span> <%= movieItem[i].title%> </span>
+            <img height="32" width="32" src="<%=movieItem[i].logoURL%>" />
 
-      <!-- ON PRIME  -->
-      <% if(movieItem[i].platform === "prime") {%>
-      <span class="completed"><%= movieItem[i].title%></span>
-      <img
-        height="32"
-        width="32"
-        src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/primevideo.svg"
-      />
-
-      <!-- ON HULU -->
-      <% }else if(movieItem[i].platform=== "hulu"){ %>
-      <span><%= movieItem[i].title%></span>
-      <img
-        height="32"
-        width="32"
-        src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/hulu.svg"
-      />
-
-      <!-- ON PARAMOUNT PLUS -->
-      <% }else if(movieItem[i].platform=== "paramountPlus"){ %>
-      <span><%= movieItem[i].title%></span>
-      <img height="32" width="32" src="../icons/paramount-seeklogo.com.svg" />
-
-      <!-- ON HBOMAX -->
-        <% }else if(movieItem[i].platform=== "hboMax"){ %>
-        <span><%= movieItem[i].title%></span>
-        <img
-          height="32"
-          width="32"
-          src=<%= movieItem[i].icons %>
-        />
-
-      <!-- ON APPLETV -->
-      <% }else if(movieItem[i].platform=== "appleTV"){ %>
-      <span><%= movieItem[i].title%></span>
-      <img
-        height="32"
-        width="32"
-        src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/appletv.svg"
-      />
-
-      <!-- ON PEACOCK -->
-      <% }else if(movieItem[i].platform=== "peacock"){ %>
-      <span><%= movieItem[i].title%></span>
-      <img
-        height="32"
-        width="32"
-        src="https://upload.wikimedia.org/wikipedia/commons/d/d3/NBCUniversal_Peacock_Logo.svg"
-      />
-
-      <!-- ON NETFLIX -->
-      <% }else if(movieItem[i].platform=== "netflix"){ %>
-      <span><%= movieItem[i].title%></span>
-      <img
-        height="32"
-        width="32"
-        src="https://cdn.jsdelivr.net/npm/simple-icons@v7/icons/netflix.svg"
-      />
-
-      <!-- ON OTHER -->
-      <% }else { %>
-      <span><%= movieItem[i].title%></span>
-      <% } %>
-    </li>
-    <% } %>
-  </ul>
+            <!-- IF NO LOGO URL IN DB, STILL DISPLAY TITLE -->
+            <% }else { %>
+            <span> <%= movieItem[i].title%> </span>
+            <span> <%= movieItem[i].platform || Other%> </span>
+            <% } %>
+        </li>
+        <% } %>
+    </ul>
 </section>
