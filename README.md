@@ -1,10 +1,10 @@
-# Watch L8r *
+# Watch L8r \*
 
 A simple fullstack application for saving a "watch later" list of all the shows/movies/etc. you intend to watch... just not right right now
 
 Motivation: Built to use for a friend and myself. The hope was to save time when we wanted to watch something but didn't know what to watch.
 
-*name is a work in progress.. other potential names include:
+\*name is a work in progress.. other potential names include:
 
 - "Lets Watch..."
 - "Sumn2Watch"
@@ -12,7 +12,7 @@ Motivation: Built to use for a friend and myself. The hope was to save time when
 
 added dev branch
 
-***
+---
 
 ## MVP (Minimum Viable Project)
 
@@ -22,7 +22,7 @@ User should be able to:
 - [x] view watch later list
 - [ ] "check off" item from list
 
-***
+---
 
 ## Refactor/Add - Next
 
@@ -30,10 +30,10 @@ User should be able to:
   - bootstrap?
 - react?
 - [ ] able to view/group/sort items
-  - [x]  by type (movies vs shows)
-  - [x]  ~~by platform (netflix, hulu, etc)~~
+  - [x] by type (movies vs shows)
+  - [x] ~~by platform (netflix, hulu, etc)~~
 
-***
+---
 
 ## Refactor/Add - Later, Down the road
 

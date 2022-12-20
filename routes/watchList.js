@@ -1,12 +1,12 @@
-const express = require('express')
-const router = express.Router()
-const watchListController = require('../controllers/watchList') 
-const { ensureAuth, ensureGuest } = require('../middleware/auth')
+const express = require("express");
+const router = express.Router();
+const watchListController = require("../controllers/watchList");
+const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 // router.get('/', ensureAuth, watchListController.getToWatchs)
-router.get('/', watchListController.getToWatchs)
+router.get("/", watchListController.getToWatchs);
 
-router.post('/addItem', watchListController.addItem)
+router.post("/addItem", watchListController.addItem);
 
 // router.put('/markWatched', watchListController.markWatched)
 
@@ -14,4 +14,4 @@ router.post('/addItem', watchListController.addItem)
 
 // router.delete('/deleteTodo', watchListController.deleteTodo)
 
-module.exports = router
+module.exports = router;

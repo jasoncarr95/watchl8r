@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const ToWatchSchema = new mongoose.Schema({
   title: {
@@ -10,15 +10,15 @@ const ToWatchSchema = new mongoose.Schema({
     required: true,
   },
   platform: {
-    type: String
+    type: String,
   },
-  logoURL:{
-    type: String
+  logoURL: {
+    type: String,
   },
   watched: {
     type: Boolean,
     // required: true,
-    default: false
+    default: false,
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -28,6 +28,6 @@ const ToWatchSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-})
+});
 
-module.exports = mongoose.model('ToWatch', ToWatchSchema)
+module.exports = mongoose.model("ToWatch", ToWatchSchema);

@@ -2,26 +2,27 @@
 const express = require("express");
 const app = express();
 
-const mongoose = require('mongoose')
-const passport = require('passport')
-const session = require('express-session')
-const MongoStore = require('connect-mongo')(session)
+const mongoose = require("mongoose");
+const passport = require("passport");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
 const methodOverride = require("method-override");
-const flash = require('express-flash')
-const logger = require('morgan')
-const connectDB = require('./config/database')
-const homeRoutes = require('./routes/home')
-const watchListRoutes = require('./routes/watchList')
-
+const flash = require("express-flash");
+const logger = require("morgan");
+const connectDB = require("./config/database");
+const homeRoutes = require("./routes/home");
+const watchListRoutes = require("./routes/watchList");
 
 // Loads .env file contents into | `process.env`. Example: 'KEY=value'
 require("dotenv").config({ path: "./config/.env" });
 
+const PORT = process.env.PORT || 8080;
+
 // Passport config
-require('./config/passport')(passport)
+require("./config/passport")(passport);
 
 //Connect To Database
-connectDB()
+connectDB();
 
 //Using EJS for views
 app.set("view engine", "ejs");
@@ -48,23 +49,22 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 );
-  
+
 // Passport middleware
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Use flash messages for errors, info, ect...
 app.use(flash());
-  
+
 //Setup Routes For Which The Server Is Listening
-app.use('/', homeRoutes)
-app.use('/watchList', watchListRoutes)
- 
+app.use("/", homeRoutes);
+app.use("/watchList", watchListRoutes);
+
 // Set up server to listen
-app.listen(process.env.PORT || PORT, () => {
-  // console.log(`Server running on port ${PORT}`);
-    console.log('Server is running, you better catch it!')
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+  console.log(
+    `You can now view movie-app in the browser.\n  Local: http://localhost:${PORT}\n  On Your Network: http://192.168.1.4:${PORT}`
+  );
 });
-
-
-
