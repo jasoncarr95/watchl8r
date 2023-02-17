@@ -1,4 +1,4 @@
-# Watch L8r 
+# Watch L8r
 
 A simple fullstack application for saving a "watch later" list of all the shows/movies/etc. you intend to watch... just not right right now
 
